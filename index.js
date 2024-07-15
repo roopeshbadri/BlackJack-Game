@@ -7,8 +7,16 @@ let messageEl = document.getElementById("message-el")
 let sumEl = document.querySelector("#sum-el")
 let cardsEl=document.querySelector("#cards-el")
 let message = ""
+let cards= [firstcard,secondcard]
 const startGame = () => {
-    cardsEl.textContent=cardsEl.textContent+" " + firstcard+ " "+secondcard
+    playGame()
+}
+const playGame = () => {
+    cardsEl.textContent="Cards: "
+    for (let cardCount = 0; cardCount < cards.length; cardCount++){
+        console.log(cards[cardCount])
+        cardsEl.textContent += cards[cardCount] + " "
+    }
     sumEl.textContent = "Sum: " + sum
     if (sum <= 20) {
         message = "Do you want a new card?"
@@ -25,4 +33,8 @@ const startGame = () => {
 }
 const newCard = () => {
     console.log("Drawing a new card")
+    let newCardEl = 8
+    cards.push(newCardEl)
+    sum += newCardEl
+    startGame()
 }
