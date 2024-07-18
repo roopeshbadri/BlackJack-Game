@@ -6,6 +6,7 @@ let messageEl = document.getElementById("message-el")
 let sumEl = document.querySelector("#sum-el")
 let cardsEl=document.querySelector("#cards-el")
 let message = ""
+let hasGameStarted=false
 // let player = {
 //     Name: "Roopesh",
 //     Chips: 145
@@ -15,11 +16,14 @@ let message = ""
 // let playerEl = document.getElementById("player-el")
 // playerEl.textContent=player.Name+": $"+player.Chips
 const startGame = () => {
-    let firstCard = getRandomCard()
-    let secondCard = getRandomCard()
-    cards.push(firstCard, secondCard)
-    sum+=firstCard+secondCard
-    playGame()
+    if (hasGameStarted === false) {
+        hasGameStarted=true
+        let firstCard = getRandomCard()
+        let secondCard = getRandomCard()
+        cards.push(firstCard, secondCard)
+        sum += firstCard + secondCard
+        playGame()
+    }
 }
 function getRandomCard() {
     let randomNumber = Math.floor(Math.random() * 13) + 1
